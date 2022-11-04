@@ -26,11 +26,11 @@ class DepartmentController:
         """
         print("insert department")
 
-    def update(self, id_:str, course_: dict) -> dict:
+    def update(self, id_:str, department_: dict) -> dict:
         """
 
         :param id_:
-        :param course_:
+        :param department_:
         :return:
         """
         print("update department")

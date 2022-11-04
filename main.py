@@ -5,9 +5,18 @@ from flask import jsonify
 from flask_cors import CORS
 from waitress import serve
 
+from blueprints.course_blueprints import course_blueprints
+from blueprints.deparment_blueprints import department_blueprint
+from blueprints.enrollment_blueprints import enrollment_blueprints
+from blueprints.student_blueprints import student_blueprints
 
 app = Flask(__name__)
 cors = CORS(app)
+app.register_blueprint(course_blueprints)
+app.register_blueprint(department_blueprint)
+app.register_blueprint(enrollment_blueprints)
+app.register_blueprint(student_blueprints)
+
 
 @app.route("/", methods=["GET"])
 def home():
