@@ -22,7 +22,7 @@ def insert_course():
     response = course_controller.create(course)
     return response, 201
 @course_blueprints.route("/course/update/<string:id_>", methods=["PATCH"])
-def update_course(id_)
+def update_course(id_):
     course = request.get_json()
     response = course_controller.update(id_, course)
     return response, 201

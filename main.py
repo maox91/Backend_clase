@@ -6,14 +6,14 @@ from flask_cors import CORS
 from waitress import serve
 
 from blueprints.course_blueprints import course_blueprints
-from blueprints.deparment_blueprints import department_blueprint
+from blueprints.department_blueprints import department_blueprints
 from blueprints.enrollment_blueprints import enrollment_blueprints
 from blueprints.student_blueprints import student_blueprints
 
 app = Flask(__name__)
 cors = CORS(app)
 app.register_blueprint(course_blueprints)
-app.register_blueprint(department_blueprint)
+app.register_blueprint(department_blueprints)
 app.register_blueprint(enrollment_blueprints)
 app.register_blueprint(student_blueprints)
 
@@ -33,5 +33,5 @@ def load_file_config():
 
 if __name__ == '__main__':
     data_config = load_file_config()
-    print("Server running: http://" + data_config.get("url-backend")+ ":" + str(data_config.get("port")))
-    serve(app, host=data_config.get("url-backend"), port=data_config.get("port") )
+    print("Server running: http://" + data_config.get("url-backend") + ":" + str(data_config.get("port")))
+    serve(app, host=data_config.get("url-backend"), port=data_config.get("port"))
