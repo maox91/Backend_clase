@@ -65,7 +65,7 @@ class InterfaceRepository(Generic[T]):
             _id = ObjectId(id_)
             delattr(item, "_id")
             item_dict = item.__dict__
-            update_item={"$set",item_dict}
+            update_item={"$set": item_dict}
             current_collection.update_one({"_id":_id}, update_item)
         else:
             # insert

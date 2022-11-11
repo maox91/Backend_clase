@@ -1,6 +1,7 @@
 from models.student import Student
 from repositories.studen_repository import StudentRepository
 
+
 class StudentController:
 
     def __int__(self):
@@ -16,7 +17,6 @@ class StudentController:
 
         :return:
         """
-        print("get all students")
         return self.student_repository.find_all()
     def show(self, id_) -> dict:
         """
@@ -37,7 +37,7 @@ class StudentController:
         student = Student(student_)
         return self.student_repository.save(student)
 
-    def update(self, id_: str, student_: dict) ->dict:
+    def update(self, id_: str, student_: dict) -> dict:
         """
 
         :param id_:
@@ -46,7 +46,7 @@ class StudentController:
         """
         print("update student")
         student = Student(student_)
-        return  self.student_repository.update(id_, student)
+        return self.student_repository.update(id_, student)
 
     def delete(self, id_:str) -> dict:
         """

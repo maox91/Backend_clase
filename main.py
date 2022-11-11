@@ -9,6 +9,7 @@ from blueprints.course_blueprints import course_blueprints
 from blueprints.department_blueprints import department_blueprints
 from blueprints.enrollment_blueprints import enrollment_blueprints
 from blueprints.student_blueprints import student_blueprints
+from blueprints.reports_blueprints import reports_blueprints
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -16,6 +17,7 @@ app.register_blueprint(course_blueprints)
 app.register_blueprint(department_blueprints)
 app.register_blueprint(enrollment_blueprints)
 app.register_blueprint(student_blueprints)
+app.register_blueprint(reports_blueprints)
 
 
 @app.route("/", methods=["GET"])

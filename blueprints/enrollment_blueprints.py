@@ -19,10 +19,15 @@ def get_enrollment_by_id(id_):
     return response, 200
 
 
-@enrollment_blueprints.route("/enrollment/insert", methos=["POST"])
-def insert_enrollment():
+@enrollment_blueprints.route("/enrollment/course/<string:course_id>", methods=["GET"])
+def get_enrolmment_by_course(course_id):
+    response = enrollment_controller.get_student_by_course(course_id)
+    return response, 200
+
+@enrollment_blueprints.route("/enrollment/insert/course/<string:course_id>/student/<string:student_id>", methos=["POST"])
+def insert_enrollment(course_id, student_id):
     enrollment = request.get_json()
-    response = enrollment_controller.create(enrollment)
+    response = enrollment_controller.create(enrollment, course_id, student_id)
     return response, 201
 
 
